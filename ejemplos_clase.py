@@ -118,6 +118,7 @@ def json_deserialize():
 
 
 def json_request():
+
     response = requests.get("https://jsonplaceholder.typicode.com/todos/1")
     # Se puede obtener el objeto JSON de dos formas distintas
     data = json.loads(response.text)
