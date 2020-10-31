@@ -15,6 +15,7 @@ __author__ = "Inove Coding School"
 __email__ = "alumnos@inove.com.ar"
 __version__ = "1.1"
 
+import json
 
 def ej1():
     # JSON Serialize
@@ -30,13 +31,19 @@ def ej1():
     #  { "prenda": "remeras", "cantidad": 12 }
     # Que su lista de prendas dentro del JSON tenga al menos 2 prendas
 
-    # json_data = {...}
+    json_data = [{
+        "Nombre" : "Martin",
+        "Apellido" : "Villodas",
+        "DNI" : "40657956",
+        "Ropa" : [{ "prenda" : "zapatilla", "cantidad" : 2 } , {"prenda" : "remera", "cantidad": 10}]
+        }]
 
     # Una vez que finalice el JSON realice un "dump" para almacenarlo en
     # un archivo que usted defina
-
     # Observe el archivo y verifique que se almaceno lo deseado
-    pass
+
+    with open ("json_ej1.json", "w") as jsonfile:
+        json.dump(json_data, jsonfile, indent=4)
 
 
 def ej2():
@@ -49,7 +56,13 @@ def ej2():
     # el método "dumps" y finalmente imprimir en pantalla el resultado
     # Recuerde utilizar indent=4 para poder observar mejor el resultado
     # en pantalla y comparelo contra el JSON que generó en el ej1
-    pass
+
+    with open("json_ej1.json", "r") as jsonfile:
+        json_ej2 = json.load(jsonfile)
+    
+    json_string = json.dumps(json_ej2, indent=4)
+
+    print(json_string)
 
 
 def ej3():
@@ -59,7 +72,7 @@ def ej3():
     # lo más parecida al ejercicio 1.
     # El objectivo es que armen un archivo XML al menos
     # una vez para que entiendan como funciona.
-    pass
+
 
 
 def ej4():
@@ -107,7 +120,7 @@ def ej5():
 if __name__ == '__main__':
     print("Bienvenidos a otra clase de Inove con Python")
     ej1()
-    # ej2()
+    ej2()
     # ej3()
     # ej4()
     # ej5()
